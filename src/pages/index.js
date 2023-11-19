@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 
+
 const BlogPage = ({ data }) => {
   return (
     <Layout pageTitle="My Blog Posts">
@@ -15,6 +16,7 @@ const BlogPage = ({ data }) => {
               </Link>
             </h2>
             <p>Posted: {node.frontmatter.date}</p>
+            <p>I'm styled by bootstrap & src/styles/index.css</p>
           </article>
         ))
       }

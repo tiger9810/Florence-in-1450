@@ -1,25 +1,38 @@
+.body {
+  background-color: black;
+}
+
 .container {
-    margin: auto;
-    max-width: 500px;
-    font-family: sans-serif;
-  }
-  .heading {
-    color: rebeccapurple;
-  }
-  .nav-links {
-    display: flex;
-    list-style: none;
-    padding-left: 0;
-  }
-  .nav-link-item {
-    padding-right: 2rem;
-  }
-  .nav-link-text {
-    color: black;
-  }
-  .site-title {
-    font-size: 3rem;
-    color: gray;
-    font-weight: 700;
-    margin: 3rem 0;
-  }
+  margin: auto;
+  max-width: 500px;
+  font-family: sans-serif;
+}
+.heading {
+  color:rgb(255, 255, 255);
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  color:rgb(255, 255, 255)
+}
+.nav-link-item {
+  padding-right: 2rem;
+  color:rgb(255, 255, 255)
+}
+.nav-link-text {
+  color:rgb(255, 255, 255);
+
+}
+.site-title {
+  font-size: 3rem;
+  color:rgb(255, 255, 255);
+  font-weight: 700;
+  margin: 3rem 0;
+}
+p {
+  color:rgb(255, 255, 255);
+}
+a {
+  color:rgb(14, 218, 157);
+}
