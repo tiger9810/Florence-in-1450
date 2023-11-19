@@ -1,22 +1,42 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import Layout from "../components/layout"
-import { StaticImage } from "gatsby-plugin-image"
-import Seo from "../components/seo"
+import * as React from 'react'
+import { Link, graphql } from 'gatsby'
+import Layout from '../components/layout'
+import Seo from '../components/seo'
 
-const IndexPage = () => {
+const BlogPage = ({ data }) => {
   return (
-    <Layout pageTitle="Home Page">
-      <p>I'm making this by following the Gatsby Tutorial.</p>
-      <p>THis below was recomended food</p>
-      <StaticImage
-        alt="Pareo-food"
-        src="../images/pareo-food.png"
-      />
+    <Layout pageTitle="My Blog Posts">
+      {
+        data.allMdx.nodes.map(node => (
+          <article key={node.id}>
+            <h2>
+              <Link to={`/blog/${node.frontmatter.slug}`}>
+                {node.frontmatter.title}
+              </Link>
+            </h2>
+            <p>Posted: {node.frontmatter.date}</p>
+          </article>
+        ))
+      }
     </Layout>
   )
 }
 
-export const Head = () => <Seo title="Home Page"></Seo>
+export const query = graphql`
+  query {
+    allMdx(sort: { frontmatter: { date: DESC }}) {
+      nodes {
+        frontmatter {
+          date(formatString: "MMMM D, YYYY")
+          title
+          slug
+        }
+        id
+      }
+    }
+  }
+`
 
-export default IndexPage
+export const Head = () => <Seo title="My Blog Posts" />
+
+export default BlogPage
